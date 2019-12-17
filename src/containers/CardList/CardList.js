@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Card } from '../../components/Card/Card';
-import { CardListWrapper } from './styled';
+import Card from '../../components/Card/Card';
+import CardListWrapper from './styled';
 
-import { fetchData } from '../../actions/ApiActions';
+import fetchData from '../../actions/ApiActions';
 
 const CardList = ({ fetchData }) => {
   useEffect(() => {
@@ -15,10 +15,10 @@ const CardList = ({ fetchData }) => {
       <Card />
     </CardListWrapper>
   );
-}
+};
 
 const mapDispatchToProps = {
-  fetchData
-}
+  fetchData,
+};
 
 export default connect(null, mapDispatchToProps)(CardList);

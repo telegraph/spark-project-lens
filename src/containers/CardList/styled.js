@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
-export const CardListWrapper = styled.div`
+const CardListWrapper = styled.div`
 
 `;
+
+export default CardListWrapper;
