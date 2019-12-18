@@ -8,10 +8,10 @@ import {
 } from './styled';
 
 
-const Card = ({ props }) => (
+const Card = ({ clientName }) => (
   <CardWrapper>
     <CardHeader>
-      <h2>Tourism Australia</h2>
+      <h2>{ clientName }</h2>
       <h3>Plan your perfect getaway longform</h3>
     </CardHeader>
     <CardCurrentTask>

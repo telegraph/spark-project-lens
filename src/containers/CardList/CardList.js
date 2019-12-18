@@ -13,6 +13,9 @@ const CardList = ({ fetchData }) => {
   return (
     <CardListWrapper>
       <Card />
+      <Card />
+      <Card />
+      <Card />
     </CardListWrapper>
   );
 };
