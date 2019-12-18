@@ -3,19 +3,28 @@ import { connect } from 'react-redux';
 import Card from '../../components/Card/Card';
 import CardListWrapper from './styled';
 
-import fetchData from '../../actions/ApiActions';
+import { fetchData } from '../../actions/ApiActions';
 
-const CardList = ({ fetchData }) => {
+interface StateProps {}
+
+interface DispatchProps {
+  fetchData(): void;
+}
+
+type CardListProps = StateProps & DispatchProps;
+
+
+const CardList = ({ fetchData }: CardListProps) => {
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
     <CardListWrapper>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <Card clientName="foo" />
+      <Card clientName="bar" />
+      <Card clientName="baz" />
+      <Card clientName="boo" />
     </CardListWrapper>
   );
 };
