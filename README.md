@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Lens
 
-## Available Scripts
+## What is this
 
-In the project directory, you can run:
+A project that is designed to consume the WorkFront API and display metrics that spark teams find useful.
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+List of requirements used in the project and installation instructions when
+necessary.
 
-### `yarn test`
+## Start the project
+We recommend using Yarn for this project. Simply `yarn install` in your terminal to install all dependencies. Once installed, start the local project server with `yarn start`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Conventions
 
-### `yarn build`
+### JavaScript Coding style
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The coding style should be enforced by `eslint`. To get a better understanding
+of the coding style rules set up in `.eslintrc` you can check:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [Felix Geisendörfer's node style guide](https://github.com/felixge/node-style-guide)
+- [AirBnB's React style guide](https://github.com/airbnb/javascript/tree/master/react)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+For `React` components, We prefer the usage of non-class based components. To gain access to class based component lifecycles methods, please use React hooks to achieve the same effect.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Styling
+TBC - Either styled components or css modules
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Folder architecture
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Frontend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The folder architecture should follow a **Component and Container based directory
+structure**. All Dumb components should sit in the main Component folder. Any components that are connected to the store or use any logic should be placed inside the Container directory. This helps us differentiate between presentational components and logic components.
 
-## Learn More
+### Backend
+***TBC***
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Workflow / Tasks
+### Git
+All code changes should follow the [git-flow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) workflow where possible. All features should be placed in a new branch and then a PR to develop should be made. The PR must be approved by at least 1 developer before being merged.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Branch naming conventions
+When working on the project, please use the following branch name conventions:
 
-### Code Splitting
+*FEATURE-name-of-feature
+BUGFIX-name-of-bugfix
+HOTFIX-name-of-hotfix*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+When you create a new branch, please assign that new branch to the [trello board]. (https://trello.com/b/hvLQiVqE/project-lens) The name of the card should be identical to that of the branch.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Tests
+A TDD approach has been taken to this project, so if applicable all test should be written before writing any production code. The Red, Green, Refactor methodology should be used here (write a test that fails, make it pass and refactor). Test are ran in Jest. 
 
-### Making a Progressive Web App
+A good test will:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+**Arrange:** Setup dependencies
+**Act:** Execute production code in test
+**Assert:** Checks that expectations are met
 
-### Advanced Configuration
+## Commands
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Frontend
 
-### Deployment
+- `yarn run build`: Build the project.
+- `yarn start`: Starts the local project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
+### Backend
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+TBC
+
+## Deployment
+TBC
+
+## Documentation
+
+TBC
