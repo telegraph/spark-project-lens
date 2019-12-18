@@ -8,15 +8,21 @@ import {
 } from './styled';
 
 
-const Card = ({ clientName }) => (
+interface CardProps {
+  clientName: string;
+};
+
+const Card = ({ clientName }: CardProps) => (
   <CardWrapper>
     <CardHeader>
       <h2>{ clientName }</h2>
       <h3>Plan your perfect getaway longform</h3>
     </CardHeader>
+
     <CardCurrentTask>
       Development Build
     </CardCurrentTask>
+
     <CardDetails>
       <img />
       <h4>Richard Young</h4>
@@ -25,12 +31,12 @@ const Card = ({ clientName }) => (
         <li>Test link: https://www.google.com</li>
       </ul>
     </CardDetails>
+
     <CardDueDate>
       <h4>Task Due date:</h4>
       <h3>12th January</h3>
     </CardDueDate>
   </CardWrapper>
 );
-
 
 export default Card;
