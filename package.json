@@ -60,7 +60,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn run lint:css",
-      "...": "..."
     }
   }
 }
