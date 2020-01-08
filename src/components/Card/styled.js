@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled(animated.div)`
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
