@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  CardWrapper,
-  CardHeader,
-  CardCurrentTask,
-  CardDetails,
-  CardDueDate,
-} from './styled';
+import { animated } from 'react-spring';
+import styles from './Card.module.css';
 
 
 interface CardProps {
@@ -18,30 +13,31 @@ interface CardProps {
 };
 
 const Card = ({ clientName, projectName, campaignID, dueDate, style, key }: CardProps) => (
-  <CardWrapper style={style} key={key}>
-    <CardHeader>
-      <h2>{ clientName }</h2>
-      <h3>{ projectName }</h3>
-    </CardHeader>
+  <animated.div style={style} key={key}>
+    <div className={styles.wrapper}>
+      <div>
+        <h2>{clientName}</h2>
+        <h3>{projectName}</h3>
+      </div>
+      <div>
+        Development Build
+    </div>
 
-    <CardCurrentTask>
-      Development Build
-    </CardCurrentTask>
+      <div>
+        <img />
+        <h4>Richard Young</h4>
+        <ul>
+          <li>Campaign ID: {campaignID}</li>
+          <li>Test link: https://www.google.com</li>
+        </ul>
+      </div>
 
-    <CardDetails>
-      <img />
-      <h4>Richard Young</h4>
-      <ul>
-        <li>Campaign ID: { campaignID }</li>
-        <li>Test link: https://www.google.com</li>
-      </ul>
-    </CardDetails>
-
-    <CardDueDate>
-      <h4>Task Due date:</h4>
-      <h3>{ dueDate }</h3>
-    </CardDueDate>
-  </CardWrapper>
+      <div>
+        <h4>Task Due date:</h4>
+        <h3>{dueDate}</h3>
+      </div>
+    </div>
+  </animated.div>
 );
 
 export default Card;

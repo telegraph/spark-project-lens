@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Card from '../../components/Card/Card';
 import { animated, useTransition } from 'react-spring';
 import { DateTime } from 'luxon';
-import CardListWrapper from './styled';
+import styles from './CardList.module.css';
 
 import { fetchData } from '../../actions/ApiActions';
 
@@ -33,9 +33,9 @@ const CardList = ({ fetchData, feed }: CardListProps) => {
   }, []);
 
   return (
-    <CardListWrapper>
+    <div className={styles.wrapper}>
       {transitions.map(({item, props, key}) =><Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} dueDate={item.dueDate.toISODate()} />)}
-    </CardListWrapper>
+    </div>
   );
 };
 
