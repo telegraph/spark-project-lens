@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  CardWrapper,
-  CardHeader,
-  CardCurrentTask,
-  CardDetails,
-  CardDueDate,
-} from './styled';
+import styles from './Card.module.css';
 
 
 interface CardProps {
@@ -13,30 +7,30 @@ interface CardProps {
 };
 
 const Card = ({ clientName }: CardProps) => (
-  <CardWrapper>
-    <CardHeader>
+  <div className={styles.wrapper}>
+    <div>
       <h2>{ clientName }</h2>
       <h3>Plan your perfect getaway longform</h3>
-    </CardHeader>
+    </div>
 
-    <CardCurrentTask>
+    <div>
       Development Build
-    </CardCurrentTask>
+    </div>
 
-    <CardDetails>
+    <div>
       <img />
       <h4>Richard Young</h4>
       <ul>
         <li>Campaign ID: asdasd</li>
         <li>Test link: https://www.google.com</li>
       </ul>
-    </CardDetails>
+    </div>
 
-    <CardDueDate>
+    <div>
       <h4>Task Due date:</h4>
       <h3>12th January</h3>
-    </CardDueDate>
-  </CardWrapper>
+    </div>
+  </div>
 );
 
 export default Card;
