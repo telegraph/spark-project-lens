@@ -5,7 +5,7 @@ import {
   ReducerState,
 } from '../actions/types';
 
-const defaultState = {};
+const defaultState: any = [];
 
 const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes) => {
   switch (action.type) {
