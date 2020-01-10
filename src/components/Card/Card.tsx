@@ -1,6 +1,5 @@
 import React from 'react';
 import { animated } from 'react-spring';
-import { DateTime } from 'luxon';
 import styles from './Card.module.css';
 import sparkLogo from '../../assets/spark-logo.svg';
 
