@@ -5,6 +5,7 @@ import { animated, useTransition } from 'react-spring';
 import { DateTime } from 'luxon';
 import styles from './CardList.module.css';
 
+import { ReducerState } from '../../actions/types';
 import { fetchData } from '../../actions/ApiActions';
 
 interface StateProps {
@@ -19,14 +20,13 @@ type CardListProps = StateProps & DispatchProps;
 
 
 const CardList = ({ fetchData, feed }: CardListProps) => {
-
   const transitions = useTransition(feed, card => card.campaignID, {
     from: { transform: 'translate3d(0,0px,0)', opacity: 0, },
     enter: { transform: 'translate3d(0,-20px,0)', opacity: 1, },
     leave: { transform: 'translate3d(0,0,0)', opacity: 0, },
     trail: 150,
     unique: true,
-  })
+  });
 
   useEffect(() => {
     fetchData();
@@ -34,7 +34,7 @@ const CardList = ({ fetchData, feed }: CardListProps) => {
 
   return (
     <div className={styles.wrapper}>
-      {transitions.map(({item, props, key}) =><Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} dueDate={item.dueDate.toISODate()} />)}
+      {transitions.map(({item, props, key}) => <Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} dueDate={item.dueDate.toFormat('dd LLLL')} />)}
     </div>
   );
 };

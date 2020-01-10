@@ -1,4 +1,3 @@
-
 import {
   FETCH_DATA,
   ReducerActionTypes,
@@ -10,7 +9,7 @@ const defaultState: any = [];
 const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes) => {
   switch (action.type) {
     case FETCH_DATA:
-      return state = action.payload
+      return action.payload
     // More actions go here
     default:
       return state
