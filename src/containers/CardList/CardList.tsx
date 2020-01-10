@@ -18,7 +18,7 @@ interface DispatchProps {
 type CardListProps = StateProps & DispatchProps;
 
 
-const CardList = ({ fetchData, feed }: CardListProps) => {
+export const CardList = ({ fetchData, feed }: CardListProps) => {
 
   const transitions = useTransition(feed, card => card.campaignID, {
     from: { transform: 'translate3d(0,0px,0)', opacity: 0, },

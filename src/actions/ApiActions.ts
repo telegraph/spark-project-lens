@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { FETCH_DATA } from './types';
 
-export const fetchData = () => (dispatch: Dispatch) => {
+export const fetchData = () => async (dispatch: Dispatch) => {
   // API call goes here
   dispatch({
     type: FETCH_DATA,
