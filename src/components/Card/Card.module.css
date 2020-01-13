@@ -16,6 +16,12 @@
   border: 5px solid #fff;
 }
 
+.wrapperRed {
+  composes: wrapper;
+  border: 5px solid #9a6c00;
+}
+
+
 .twoColumn {
   display: grid;
   grid-template-columns: auto 150px;
@@ -59,6 +65,10 @@
   margin: 0;
   font-size: 14px;
   font-weight: 400;
+}
+
+.dueSoon {
+  color: #ffb200;
 }
 
 .monoUpper {
