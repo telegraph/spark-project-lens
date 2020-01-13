@@ -9,13 +9,14 @@ interface CardProps {
   projectName: string;
   campaignID: string;
   dueDate: string;
+  dueSoon: any;
   style: object;
   key: string;
 };
 
-const Card = ({ clientName, projectName, campaignID, dueDate, style, key }: CardProps) => (
+const Card = ({ clientName, projectName, campaignID, dueDate, dueSoon, style, key }: CardProps) => (
   <animated.div style={style} key={key}>
-    <div className={styles.wrapper}>
+    <div className={dueSoon ? styles.wrapperRed : styles.wrapper}>
       <div className={styles.header}>
         <img src="http://via.placeholder.com/30x30" alt="Project" />
 
@@ -48,7 +49,7 @@ const Card = ({ clientName, projectName, campaignID, dueDate, style, key }: Card
 
         <div className={styles.taskDetails}>
           <h4>Task due date:</h4>
-          <h3>{dueDate.split(' ').map(x => <span>{x}</span>)}</h3>
+          <h3 className={ dueSoon ? styles.dueSoon : undefined }>{dueDate.split(' ').map(x => <span>{x}</span>)}</h3>
         </div>
       </div>
 
