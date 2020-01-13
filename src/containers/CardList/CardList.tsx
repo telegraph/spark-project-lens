@@ -20,7 +20,7 @@ type CardListProps = StateProps & DispatchProps;
 
 
 const CardList = ({ fetchData, feed }: CardListProps) => {
-  const transitions = useTransition(feed, card => card.campaignID, {
+  const transitions = useTransition(feed, card => card.clientName, {
     from: { transform: 'translate3d(0,0px,0)' , opacity: 0, },
     enter: { transform: 'translate3d(0,-20px,0)', opacity: 1, },
     leave: { transform: 'translate3d(0,0,0)', opacity: 0, },
