@@ -18,6 +18,12 @@ interface DispatchProps {
 
 type CardListProps = StateProps & DispatchProps;
 
+const isDueSoon = (date: object) => {
+  const now = DateTime.local();
+  if (now.plus({days: 5}) > date) return true;
+  return false;
+};
+
 
 const CardList = ({ fetchData, feed }: CardListProps) => {
   const transitions = useTransition(feed, card => card.clientName, {
@@ -34,7 +40,7 @@ const CardList = ({ fetchData, feed }: CardListProps) => {
 
   return (
     <div className={styles.wrapper}>
-      {transitions.map(({item, props, key}) => <Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} dueDate={item.dueDate.toFormat('dd LLLL')} />)}
+      {transitions.map(({item, props, key}) => <Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} dueDate={item.dueDate.toFormat('dd LLLL')} dueSoon={isDueSoon(item.dueDate)} />)}
     </div>
   );
 };
