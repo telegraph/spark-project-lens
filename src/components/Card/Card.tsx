@@ -8,13 +8,22 @@ interface CardProps {
   clientName: string;
   projectName: string;
   campaignID: string;
+  assignedDev: Developer;
+  currentTask: string;
   dueDate: string;
   dueSoon: any;
   style: object;
   key: string;
 };
 
-const Card = ({ clientName, projectName, campaignID, dueDate, dueSoon, style, key }: CardProps) => (
+interface Developer {
+  ID: string;
+  avatarDownloadURL: string;
+  name: string;
+  objCode: string;
+}
+
+const Card = ({ clientName, projectName, campaignID, assignedDev, currentTask, dueDate, dueSoon, style, key }: CardProps) => (
   <animated.div style={style} key={key}>
     <div className={dueSoon ? styles.wrapperRed : styles.wrapper}>
       <div className={styles.header}>
@@ -32,14 +41,14 @@ const Card = ({ clientName, projectName, campaignID, dueDate, dueSoon, style, ke
       </div>
 
       <div className={styles.taskType}>
-        Development Build
+        { currentTask }
       </div>
 
       <div className={styles.twoColumn}>
         <div className={styles.developer}>
-          <img src="http://via.placeholder.com/100x100" alt="img" />
+          <img src={`https://telegraph.my.workfront.com${assignedDev.avatarDownloadURL}`}alt="img" />
           <div>
-            <h4>Richard Young</h4>
+            <h4>{ assignedDev.name }</h4>
             <ul>
               <li>Campaign ID: {campaignID}</li>
               <li>Test link: https://www.google.com</li>

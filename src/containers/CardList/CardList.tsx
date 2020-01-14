@@ -26,7 +26,7 @@ const isDueSoon = (date: object) => {
 
 
 const CardList = ({ fetchData, feed }: CardListProps) => {
-  const transitions = useTransition(feed, card => card.clientName, {
+  const transitions = useTransition(feed, card => card.uid, {
     from: { transform: 'translate3d(0,0px,0)' , opacity: 0, },
     enter: { transform: 'translate3d(0,-20px,0)', opacity: 1, },
     leave: { transform: 'translate3d(0,0,0)', opacity: 0, },
@@ -40,7 +40,7 @@ const CardList = ({ fetchData, feed }: CardListProps) => {
 
   return (
     <div className={styles.wrapper}>
-      {transitions.map(({item, props, key}) => <Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} dueDate={item.dueDate.toFormat('dd LLLL')} dueSoon={isDueSoon(item.dueDate)} />)}
+      {transitions.map(({item, props, key}) => <Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} assignedDev={item.assignedDev} currentTask={item.currentTask} dueDate={item.dueDate.toFormat('dd LLLL')} dueSoon={isDueSoon(item.dueDate)} />)}
     </div>
   );
 };
@@ -52,8 +52,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state: any) => {
   return {
     // TODO: sorting will be done here
-    feed: state.map((card: any) => (
-      {...card, dueDate: DateTime.fromFormat(card.dueDate, "yyyy-MM-dd'T'TT:SSSZZZ"),}
+    feed: state.map((card: any, i: number) => (
+      {...card, dueDate: DateTime.fromFormat(card.dueDate, "yyyy-MM-dd'T'TT:SSSZZZ"), uid: i }
     ))
     .sort((a: any, b: any) => (
       (a.dueDate > b.dueDate) ? 1 : -1
