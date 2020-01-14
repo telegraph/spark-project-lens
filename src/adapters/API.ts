@@ -14,6 +14,7 @@ const singleCardData = (proj: any) => {
     currentTask: proj.name,
     dueDate: project.plannedCompletionDate,
     projectStatus: project.status,
+    assignedDev: proj.assignedTo,
     assignedMembers: allAssignedToProject(proj),
     testLink: getTestURL(proj),
     headshots: getHeadshots(proj)
@@ -28,14 +29,14 @@ const allAssignedToProject = (project: any) => {
   return Array.from(filtered.values())
 }
 
-const getTestURL = (project: any) => {
-  const testUrl = project.project.tasks.filter((t: any) => t.parameterValues['DE:Bespoke Build Test Link'])
+const getTestURL = (proj: any) => {
+  const testUrl = proj.project.tasks.filter((t: any) => t.parameterValues['DE:Bespoke Build Test Link'])
   if (!testUrl[0]) return
   return testUrl[0].parameterValues['DE:Bespoke Build Test Link']
 }
 
-const getAssigned = (project: any) => {
-  const assigned = project.project.tasks.map((task: any) => {
+const getAssigned = (proj: any) => {
+  const assigned = proj.project.tasks.map((task: any) => {
     return task.assignedTo
   })
   return assigned
