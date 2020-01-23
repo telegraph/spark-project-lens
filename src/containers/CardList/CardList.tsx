@@ -52,7 +52,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state: any) => {
   return {
     // TODO: sorting will be done here
-    feed: state.map((card: any, i: number) => (
+    feed: state.tasks.map((card: any, i: number) => (
       {...card, dueDate: DateTime.fromFormat(card.dueDate, "yyyy-MM-dd'T'TT:SSSZZZ"), uid: i }
     ))
     .sort((a: any, b: any) => (

@@ -4,12 +4,14 @@ import {
   ReducerState,
 } from '../actions/types';
 
-const defaultState: any = [];
+const defaultState: any = {
+  tasks: [],
+};
 
 const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes) => {
   switch (action.type) {
     case FETCH_DATA:
-      return action.payload
+      return {...state, tasks: action.payload}
     // More actions go here
     default:
       return state
