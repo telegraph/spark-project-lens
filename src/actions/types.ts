@@ -11,5 +11,5 @@ export type ReducerActionTypes = FetchDataAction;
 
 // State interfaces
 export interface ReducerState {
-  // TODO: fill state type out once we know what we are going to hold in here
+  tasks: object;
 }

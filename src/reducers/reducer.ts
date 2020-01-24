@@ -4,8 +4,8 @@ import {
   ReducerState,
 } from '../actions/types';
 
-const defaultState: any = {
-  tasks: [],
+const defaultState: ReducerState = {
+  tasks: []
 };
 
 const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes) => {
