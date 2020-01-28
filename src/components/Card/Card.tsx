@@ -1,5 +1,6 @@
 import React from 'react';
 import { animated } from 'react-spring';
+import { Developer } from '../../actions/types';
 import styles from './Card.module.css';
 import sparkLogo from '../../assets/spark-logo.svg';
 
@@ -11,19 +12,22 @@ interface CardProps {
   assignedDev: Developer;
   currentTask: string;
   dueDate: string;
-  dueSoon: any;
+  dueSoon: boolean;
   style: object;
   key: string;
 };
 
-interface Developer {
-  ID: string;
-  avatarDownloadURL: string;
-  name: string;
-  objCode: string;
-}
-
-const Card = ({ clientName, projectName, campaignID, assignedDev, currentTask, dueDate, dueSoon, style, key }: CardProps) => (
+const Card = ({ 
+  clientName,
+  projectName,
+  campaignID,
+  assignedDev,
+  currentTask,
+  dueDate,
+  dueSoon,
+  style,
+  key 
+}: CardProps) => (
   <animated.div style={style} key={key}>
     <div className={dueSoon ? styles.wrapperRed : styles.wrapper}>
       <div className={styles.header}>
@@ -58,7 +62,9 @@ const Card = ({ clientName, projectName, campaignID, assignedDev, currentTask, d
 
         <div className={styles.taskDetails}>
           <h4>Task due date:</h4>
-          <h3 className={ dueSoon ? styles.dueSoon : undefined }>{dueDate.split(' ').map(x => <span>{x}</span>)}</h3>
+          <h3 className={ dueSoon ? styles.dueSoon : undefined }>
+            {dueDate.split(' ').map((x, i) => <span key={i}>{x}</span>)}
+          </h3>
         </div>
       </div>
 
