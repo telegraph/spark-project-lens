@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Card from '../../components/Card/Card';
-import { animated, useTransition } from 'react-spring';
+import { useTransition } from 'react-spring';
 import { DateTime } from 'luxon';
 import styles from './CardList.module.css';
 
@@ -24,6 +24,9 @@ const isDueSoon = (date: object) => {
   return false;
 };
 
+const convertStringToDate = (dateString: string): DateTime =>
+  DateTime.fromFormat(dateString, "yyyy-MM-dd'T'TT:SSSZZZ");
+
 
 const CardList = ({ fetchData, feed }: CardListProps) => {
   const transitions = useTransition(feed, card => card.uid, {
@@ -40,7 +43,19 @@ const CardList = ({ fetchData, feed }: CardListProps) => {
 
   return (
     <div className={styles.wrapper}>
-      {transitions.map(({item, props, key}) => <Card style={props} key={key} clientName={item.clientName} projectName={item.projectName} campaignID={item.campaignID} assignedDev={item.assignedDev} currentTask={item.currentTask} dueDate={item.dueDate.toFormat('dd LLLL')} dueSoon={isDueSoon(item.dueDate)} />)}
+      {transitions.map(({item, props, key}) => (
+        <Card 
+          style={props} 
+          key={key} 
+          clientName={item.clientName} 
+          projectName={item.projectName} 
+          campaignID={item.campaignID} 
+          assignedDev={item.assignedDev} 
+          currentTask={item.currentTask} 
+          dueDate={item.dueDate.toFormat('dd LLLL')} 
+          dueSoon={isDueSoon(item.dueDate)} 
+        />
+      ))}
     </div>
   );
 };
@@ -49,12 +64,14 @@ const mapDispatchToProps = {
   fetchData,
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: ReducerState) => {
   return {
     // TODO: sorting will be done here
-    feed: state.tasks.map((card: any, i: number) => (
-      {...card, dueDate: DateTime.fromFormat(card.dueDate, "yyyy-MM-dd'T'TT:SSSZZZ"), uid: i }
-    ))
+    feed: state.tasks.map((card: any, i: number) => ({
+      ...card, 
+      dueDate: convertStringToDate(card.dueDate), 
+      uid: i 
+    }))
     .sort((a: any, b: any) => (
       (a.dueDate > b.dueDate) ? 1 : -1
     )),
