@@ -3,6 +3,7 @@ import * as dummyData from '../assets/dummyData.json'
 export const allCardData: any = () => {
   const data = dummyData.data
   return data.map((d: any) => singleCardData(d))
+  // return data.map((d: any, i) => ({ clientName: i }))
 }
 
 const singleCardData = (proj: any) => {
