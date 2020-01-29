@@ -13,6 +13,7 @@ module.exports =  {
   },
   rules:  {
     "max-len": [2, 120, 2],
+    "object-curly-spacing": 2,
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
   },

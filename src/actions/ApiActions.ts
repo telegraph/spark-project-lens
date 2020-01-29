@@ -1,5 +1,5 @@
-import { Dispatch } from 'redux';
-import { FETCH_DATA } from './types';
+import {Dispatch} from 'redux';
+import {FETCH_DATA} from './types';
 import * as API from '../adapters/API'
 
 export const fetchData = () => (dispatch: Dispatch) => {

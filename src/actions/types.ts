@@ -1,5 +1,5 @@
 // Action types
-import { DateTime } from 'luxon';
+import {DateTime} from 'luxon';
 
 export const FETCH_DATA = 'FETCH_DATA';
 
