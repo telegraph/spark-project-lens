@@ -1,28 +1,26 @@
-module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    "jest": true,
-  },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
+module.exports =  {
+  parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
+  extends:  [
+    'plugin:react/recommended',  // Uses the recommended rules from @eslint-plugin-react
+    'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+  parserOptions:  {
+  ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
+  sourceType:  'module',  // Allows for the use of imports
+  ecmaFeatures:  {
+    jsx:  true,  // Allows for the parsing of JSX
   },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+  },
+  rules:  {
+    "max-len": [2, 120, 2],
+    "object-curly-spacing": 2,
+    "semi": 2,
+    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+  },
+  settings:  {
+    react:  {
+      version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
     },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  plugins: [
-    'react',
-  ],
-  rules: {
-    "react/jsx-filename-extension": 0
   },
 };
