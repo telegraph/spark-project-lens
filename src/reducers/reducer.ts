@@ -11,10 +11,10 @@ const defaultState: ReducerState = {
 const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes) => {
   switch (action.type) {
     case FETCH_DATA:
-      return {...state, tasks: action.payload}
+      return {...state, tasks: action.payload};
     // More actions go here
     default:
-      return state
+      return state;
   }
 };
 
