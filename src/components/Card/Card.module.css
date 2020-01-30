@@ -2,7 +2,7 @@
   max-width: 600px;
   width: 100%;
   margin: 60px auto;
-  background: #153065;
+  background: #212121;
   box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.02),
     0 6.7px 5.3px rgba(0, 0, 0, 0.028),
@@ -10,26 +10,23 @@
     0 22.3px 17.9px rgba(0, 0, 0, 0.042),
     0 41.8px 33.4px rgba(0, 0, 0, 0.05),
     0 100px 80px rgba(0, 0, 0, 0.07);
-  border-radius: 10px;
+  border-radius: 4px;
   font-family: "Telesans Text Regular", "Telesans Text", sans-serif;
   color: #fff;
-  border: 5px solid #fff;
 }
 
 .wrapperRed {
   composes: wrapper;
-  border: 5px solid #9a6c00;
 }
 
 
 .twoColumn {
   display: grid;
   grid-template-columns: auto 150px;
-  background-color: #112219;
 }
 
 .twoColumn > div {
-  padding: 10px;
+  padding: 1rem 1.5rem;
 }
 
 .wrapper > div:first-child {
@@ -43,11 +40,11 @@
 }
 
 .header {
-  background-color: #000;
   display: flex;
   align-items: center;
-  padding: 5px 10px;
-  border-bottom: 1px solid #0a4f29;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #111012;
+  border-top: 4px solid rgba(17, 167, 239, 0.85);
 }
 
 .titles {
@@ -62,6 +59,7 @@
 }
 
 .titles h3 {
+  color: #a2a2a2;
   margin: 0;
   font-size: 14px;
   font-weight: 400;
@@ -80,18 +78,19 @@
 }
 
 .taskType {
-  background-color: #112219;
-  border-bottom: 1px solid #0a4f29;
-  padding: 10px;
+  border-bottom: 1px solid #333;
+  color: #a2a2a2;
+  padding: 1rem 1.5rem;
   font-size: 14px;
 }
 
 .taskDetails {
-  border-bottom: 1px solid #0a4f29;
+  border-bottom: 1px solid #333;
   text-align: center;
 }
 
 .taskDetails h4 {
+  color: #a2a2a2;
   font-weight: 400;
   margin-top: 0;
   margin-bottom: 10px;
@@ -113,7 +112,7 @@
 }
 
 .peopleWrapper {
-  border-right: 1px solid #0a4f29;
+  border-right: 1px solid #333;
   display: flex;
   align-items: flex-start;
 }
@@ -121,8 +120,8 @@
 .developer {
   display: flex;
   align-items: flex-start;
-  border-bottom: 1px solid #0a4f29;
-  border-right: 1px solid #0a4f29;
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
 }
 
 .developer h4 {
@@ -137,6 +136,10 @@
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.developer ul li {
+  color: #a2a2a2;
 }
 
 .person {
@@ -156,6 +159,7 @@
 }
 
 .personTitle {
+  color: #a2a2a2;
   font-size: 12px;
 }
 

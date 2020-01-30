@@ -17,8 +17,7 @@ code {
 }
 
 #root {
-  background-image: radial-gradient( circle farthest-corner at -4% -12.9%,  rgb(26, 33, 37) 0.3%, rgba(30,33,48,1) 90.2% );
-  background-color: #1a1f25;
+  background-color: #111012;
   min-height: 100vh;
 }
 
