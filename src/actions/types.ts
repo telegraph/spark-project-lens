@@ -11,10 +11,10 @@ export interface FetchDataAction {
 
 export interface Task {
   clientName: string;
-  projectname: string;
+  projectName: string;
   campaignID: string;
   currentTask: string;
-  dueDate: DateTime;
+  dueDate: string | DateTime;
   projectStatus: string;
   assignedDev: Developer;
   assignedMembers: [Developer];

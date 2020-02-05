@@ -1,6 +1,6 @@
 import React from 'react';
-import { animated } from 'react-spring';
-import { Developer } from '../../actions/types';
+import {animated} from 'react-spring';
+import {Developer} from '../../actions/types';
 import styles from './Card.module.css';
 import sparkLogo from '../../assets/spark-logo.svg';
 
@@ -17,7 +17,7 @@ interface CardProps {
   key: string;
 };
 
-const Card = ({ 
+const Card: React.FunctionComponent<CardProps> = ({
   clientName,
   projectName,
   campaignID,
@@ -26,7 +26,7 @@ const Card = ({
   dueDate,
   dueSoon,
   style,
-  key 
+  key
 }: CardProps) => (
   <animated.div style={style} key={key}>
     <div className={dueSoon ? styles.wrapperRed : styles.wrapper}>
