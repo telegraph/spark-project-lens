@@ -2,7 +2,7 @@ import {Dispatch} from 'redux';
 import {FETCH_DATA} from './types';
 import * as API from '../adapters/API';
 
-export const fetchData = () => (dispatch: Dispatch) => {
+export const fetchData = () => (dispatch: Dispatch): void => {
   // API call goes here
   const data = API.allCardData();
 

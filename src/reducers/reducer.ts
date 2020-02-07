@@ -8,7 +8,7 @@ const defaultState: ReducerState = {
   tasks: []
 };
 
-const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes) => {
+const reducer = (state: ReducerState = defaultState, action: ReducerActionTypes): ReducerState => {
   switch (action.type) {
     case FETCH_DATA:
       return {...state, tasks: action.payload};
