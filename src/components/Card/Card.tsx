@@ -15,6 +15,7 @@ interface CardProps {
   dueSoon: boolean;
   style: object;
   key: string;
+  isCompact?: boolean;
 };
 
 const Card: React.FunctionComponent<CardProps> = ({
@@ -26,10 +27,11 @@ const Card: React.FunctionComponent<CardProps> = ({
   dueDate,
   dueSoon,
   style,
-  key
+  key,
+  isCompact,
 }: CardProps) => (
   <animated.div style={style} key={key}>
-    <div className={dueSoon ? styles.wrapperRed : styles.wrapper}>
+    <div className={`${dueSoon ? styles.wrapperRed : styles.wrapper} ${isCompact ? styles.compact : ''}`}>
       <div className={styles.header}>
         <img src="http://via.placeholder.com/30x30" alt="Project" />
 

@@ -1,0 +1,80 @@
+:root {
+  --button-width: 40px;
+  --button-height: 20px;
+  --knob-width: 12px;
+  --button-checked-background: #bbb;
+  --knob-checked-colour: #ebf7fc;
+  --button-unchecked-background: #ebf7fc;
+  --knob-unchecked-colour: #bbb;
+}
+
+.wrapper {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+
+.ToggleButton {
+  display: block;
+  position: relative;
+  width: var(--button-width);
+  height: var(--button-height);
+  margin: 0 auto 0 auto;
+  overflow: hidden;
+  border-radius: 100px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.ToggleButton:focus {
+  outline: none;
+}
+
+.knobs, .layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.layer {
+  width: 100%;
+  background-color: var(--button-unchecked-background);
+  transition: 0.3s ease all;
+  z-index: 1;
+  border-radius: 100px;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.knobs:before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: var(--knob-width);
+  height: var(--knob-width);
+  background-color: var(--knob-unchecked-colour);
+  border-radius: 50%;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+.knobs,
+.knobs:before,
+.layer {
+  transition: 0.3s ease all;
+}
+
+.ToggleButton.checked .knobs:before {
+  left: calc(var(--button-width) - var(--knob-width) - 6px);
+  background-color: var(--knob-checked-colour);
+}
+
+.ToggleButton.checked .layer {
+  background-color: var(--button-checked-background);
+}
+

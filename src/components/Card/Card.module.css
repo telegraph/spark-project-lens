@@ -185,3 +185,51 @@
   margin-bottom: -1px;
   margin-top: 6px;
 }
+
+/* compact styles */
+
+.compact {
+  margin: 25px auto;
+}
+
+.compact .peopleWrapper,
+.compact .status {
+  display: none;
+}
+
+.compact .header,
+.compact .taskType,
+.compact .twoColumn > div {
+  padding: 0.7rem 1.5rem 0.5rem;
+}
+
+.compact .developer {
+  border-bottom: 0;
+  border-bottom-left-radius: 10px;
+}
+
+.compact .developer img {
+  max-width: 70px;
+}
+
+.compact .taskDetails {
+  border-bottom: 0;
+  border-bottom-right-radius: 10px;
+}
+
+.compact .taskDetails h3 {
+  margin-top: 5px;
+}
+
+.compact .taskDetails h3 span:first-child {
+  font-size: 40px;
+}
+
+.compact .taskDetails h3 span:last-child {
+  font-size: 18px;
+}
+
+.compact .taskDetails h4 {
+  font-size: 14px;
+  margin-top: -5px;
+}
