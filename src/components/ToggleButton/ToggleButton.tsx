@@ -3,15 +3,15 @@ import styles from './ToggleButton.module.css';
 
 interface ToggleButtonProps {
   onClick: React.MouseEventHandler<HTMLElement>;
-  currentState: boolean;
+  isChecked: boolean;
   label?: string;
 }
 
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({onClick, currentState, label}: ToggleButtonProps) => (
+const ToggleButton: React.FC<ToggleButtonProps> = ({onClick, isChecked, label}: ToggleButtonProps) => (
   <div className={styles.wrapper}>
     <button
-      className={`${styles.ToggleButton} ${currentState ? styles.checked : ''}`}
+      className={`${styles.ToggleButton} ${isChecked ? styles.checked : ''}`}
       onClick={onClick}
       title={label}
     >
