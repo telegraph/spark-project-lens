@@ -67,7 +67,7 @@ const CardList: React.FunctionComponent<CardListProps> = ({fetchData, feed}: Car
         />
       ))}
 
-      <ToggleButton onClick={(): void => {setCompact(!compact);}} currentState={compact} label="Compact" />
+      <ToggleButton onClick={(): void => {setCompact(!compact);}} isChecked={compact} label="Compact" />
     </div>
   );
 };
