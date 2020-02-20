@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import Card from '../../components/Card/Card';
 import {useTransition} from 'react-spring';
 import {DateTime} from 'luxon';
 import styles from './CardList.module.css';
 import {Task} from '../../actions/types';
+import ToggleButton from '../../components/ToggleButton/ToggleButton';
 
 import {ReducerState} from '../../actions/types';
 import {fetchData} from '../../actions/ApiActions';
@@ -35,6 +36,8 @@ const convertStringToDate = (dateString: string): DateTime =>
 
 
 const CardList: React.FunctionComponent<CardListProps> = ({fetchData, feed}: CardListProps) => {
+  const [compact, setCompact] = useState(false);
+
   const transitions = useTransition(feed, card => card.uid, {
     from: {transform: 'translate3d(0,0px,0)' , opacity: 0,},
     enter: {transform: 'translate3d(0,-20px,0)', opacity: 1,},
@@ -60,8 +63,11 @@ const CardList: React.FunctionComponent<CardListProps> = ({fetchData, feed}: Car
           currentTask={item.currentTask}
           dueDate={item.dueDate.toFormat('dd LLLL')}
           dueSoon={isDueSoon(item.dueDate)}
+          isCompact={compact}
         />
       ))}
+
+      <ToggleButton onClick={(): void => {setCompact(!compact);}} isChecked={compact} label="Compact" />
     </div>
   );
 };
